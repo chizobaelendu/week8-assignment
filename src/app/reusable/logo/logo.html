@@ -1,0 +1,12 @@
+<!-- NOTE: Public assets are accessible to a component irrespective of its directory. -->
+<img src="myLogo.jpg" alt="" [ngClass]="{
+    smallSizeLogo: logoSize() === 'small',
+    mediumSizeLogo: logoSize() === 'medium',
+    bigSizeLogo: logoSize() === 'big'
+}">
+
+<!--
+<img [src]="logoSrc" alt="{{ brandName }} logo"
+    class="y-footer-logo h-14 w-14 rounded-2xl object-contain bg-white/5 ring-1 ring-white/10 p-1" loading="lazy"
+    width="56" height="56" />
+-->

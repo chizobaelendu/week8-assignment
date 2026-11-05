@@ -1,0 +1,30 @@
+<!-- Just like [ngStyle], [ngClass] attribute directive is also defined as an object of class names, 
+but unlike in [ngStyle] where style properties are defined using their respective values, [ngClass] class names are defined using boolean values. -->
+<!-- A class name is added to the button component ONLY if it meets the specified condition. -->
+<button
+  [ngClass]="{
+    whiteBgButton: buttonBgColor === 'white',
+    orangeBgButton: buttonBgColor === 'orange',
+    smallWidthButton: buttonWidthInPx === 100,
+    mediumWidthButton: buttonWidthInPx === 115,
+    largeWidthButton: buttonWidthInPx === 165,
+    largestWidthButton: buttonWidthInPx === 200
+  }"
+  (click)="onButtonClick()"
+>
+  {{ buttonText }}
+</button>
+
+
+
+<!-- 
+<button
+  [ngClass]="{
+    whiteBgButton: buttonType() === 'white',
+    orangeButton: buttonType() === 'orange',
+  }"
+  (click)="onNavClick()"
+>
+  {{ buttonText() }}
+</button>
+-->

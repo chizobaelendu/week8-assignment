@@ -1,0 +1,63 @@
+/* CSS for big size card. */
+.events-container {
+    /* Just like flex and flex-box display, grid display is also implemented using parent-children approach. */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Gap in-between the columns */
+    margin: 50px 0px;
+}
+
+.event {
+    border: 1px solid rgb(198, 188, 188);
+    border-radius: 12px;
+    padding-bottom: 20px;
+    
+}
+
+.event-heading {
+    padding: 40px;
+    width: 100%;
+    text-align:left;
+    color: white;
+}
+
+.event-description, .event-type {
+    font-weight: bold;
+}
+
+.event-description {
+    margin: 5px 0px;
+}
+
+/* CSS for small size card. */
+.objectives-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px 0px;
+}
+
+.smallSizeCard {
+    border: 1px solid rgb(198, 188, 188);
+    border-radius: 12px;
+    padding: 25px;
+    padding-left: 20px;
+    background-color: white;
+}
+
+.objective-initial, .objective, .subcription-level, .subcription-initial {
+    font-weight: bold;
+}
+
+.objective-description, .objective-initial, .subcription-initial, .subcription-access, .event-expectation {
+    margin: 15px 0px;
+}
+
+
+
+.subcriptions-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0px;
+}

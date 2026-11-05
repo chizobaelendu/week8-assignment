@@ -1,0 +1,45 @@
+
+    @if (cardType() === 'events') {
+        <div ngClass="events-container">
+            @for (event of eventList; track event.id) {
+            <div [ngClass]="{bigSizeCard: cardType() === 'events', event: true}">
+                <h2 ngClass="event-heading" [ngStyle]="getBgColor(event.heading)">{{ event.heading | uppercase}}</h2>
+                <p ngClass="event-type" [ngStyle]="getTextColor(event.heading)">{{ event.type | uppercase}}</p>
+                <h5 ngClass="event-description">{{ event.description | titlecase}}</h5>
+                <span ngClass="event-date">{{ event.date }}</span> . <span ngClass="event-mode-of-lecture">{{ event.modeOfLecture }}</span> . <span ngClass="event-duration">{{ event.duration }}</span>
+                <p ngClass="event-expectation">{{ event.expectation }}</p>
+                <app-link [linkText]="event.buttonText" (clickEvent)="navigateToRegPage()" />
+                <!-- <a ngClass="event-link" (click)="onLinkClick($event)" [ngStyle]="{'color': 'blue'}">{{ event.buttonText }}</a> -->
+            </div>
+            }
+        </div>
+    } 
+    @if (cardType() === 'objectives') {
+        <div ngClass="objectives-container">
+            @for (yraObjective of yraObjectives; track yraObjective.objectiveInitial) {
+                <div [ngClass]="{smallSizeCard: cardType() === 'objectives'}">
+                    <p ngClass="objective-initial" [ngStyle]="getObjTextColor(yraObjective.objectiveInitial)">{{ yraObjective.objectiveInitial | uppercase }}</p>
+                    <p ngClass="objective">{{ yraObjective.objective | uppercase }}</p>
+                    <p ngClass="objective-description">{{ yraObjective.objectiveDescription }}</p>
+                    <app-link [linkText]="yraObjective.objectiveLink" (clickEvent)="navigateToExplorationPage()" />
+                </div>
+            }
+        </div>
+    }
+    @if (cardType() === 'subscriptions') {
+        <div ngClass="subcriptions-container">
+            @for (yraSub of yraSubscriptions; track yraSub.subscriptionInitial) {
+                <div [ngClass]="{smallSizeCard: cardType() === 'subscriptions'}">
+                    <p ngClass="subcription-initial" [ngStyle]="getSubTextColor(yraSub.subscriptionInitial)">{{ yraSub.subscriptionInitial | uppercase }}</p>
+                    <p ngClass="subcription-level">{{ yraSub.subscriptionLevel | titlecase }}</p>
+                    <p ngClass="subcription-access">{{ yraSub.subscriptionAccess }}</p>
+                    <app-button 
+                    [buttonText]="yraSub.subscriptionButtonText" 
+                    [buttonBgColor]="yraSub.subscriptionInitial === 'f' ? 'white' : 'orange'" 
+                    [buttonWidthInPx]="yraSub.subscriptionInitial === 'f' ? 165 : 200"
+                    (buttonClick)="navigateToResourcePage($event)"
+                    />
+                </div>
+            }
+        </div>
+    }
